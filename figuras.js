@@ -47,6 +47,20 @@ const circleArea = (radius) => {
 }
 console.groupEnd();
 
+//Codigo del triangulo isosceles
+
+const heightIsosceles = (side,base) => {
+ return Math.sqrt((side*side)-((base*base)/4));
+};
+
+const areaIsosceles = (height,base) => {
+  return (1/2)*base*height;
+};
+
+const perimeterIsosceles = (base, side) => {
+  return parseInt(base) + parseInt(2*side);
+};
+
 // aqui espesaremos a manejar los botenes con el DOM en html funciones para el cuadrado. 
  document.getElementById("perimeter-square").addEventListener("click", () => {
    const inputSquare = document.getElementById("inputSquare").value; 
@@ -89,4 +103,24 @@ console.groupEnd();
   const inputRadius2 = document.getElementById("inputRadius").value;
   console.log(circleArea(inputRadius2));
 });
-  
+
+//Altura de un triangulo isosceles 
+document.getElementById("height-isosceles").addEventListener( "click", () => {
+  const inputSideA = document.getElementById("isoscelesSideA").value;
+  const inputBaseA = document.getElementById("isoscelesBase").value;
+  console.log(heightIsosceles(inputSideA,inputBaseA));
+});
+
+//Area de un triangulo isosceles 
+document.getElementById("area-isosceles").addEventListener("click", () => {
+  const inputHeight = document.getElementById("isoscelesHeight").value;
+  const inputBaseB = document.getElementById("isoscelesBase").value;
+  console.log(areaIsosceles(inputHeight, inputBaseB))
+});
+
+//Perimetro de un triangulo isosceles 
+document.getElementById("perimeter-isosceles").addEventListener("click", () => {
+  const inputBaseC = document.getElementById("isoscelesBase").value;
+  const inputSideC = document.getElementById("isoscelesSideA").value;
+  console.log(perimeterIsosceles(inputBaseC, inputSideC));
+});
